@@ -1,14 +1,3 @@
-# Install CFME from upstream repo and config environment
-#
-# Author: Aaron Weitekamp
-#
-# Instructions:
-#  update $github_token (Github API access token)
-#  Generate and copy token here: https://github.com/settings/applications
-#
-#  run as 'puppet apply -v -e "include cfme"'
-#  append '--noop' for dry run
-#
 class cfme {
   if $::id == "root" {
     $home_dir = "/${::id}"

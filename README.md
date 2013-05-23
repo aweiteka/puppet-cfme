@@ -7,6 +7,7 @@ Puppet installer and environment setup for CFME from upstream source.
  * `yum install -y puppet`
  * Also `yum install -y ruby-rdoc` for puppet help
  * Access to the [cfme private repo](https://github.com/ManageIQ/cfme)
+ * Assumes user directory is one of `/root` or `/home/<user>`.
  
 ## Instructions
 1. Clone this repo into `/etc/puppet/modules`
@@ -21,4 +22,12 @@ Puppet installer and environment setup for CFME from upstream source.
         bin/rake db:migrate
         bin/rake evm:start
 
+## Known issues/TODO:
+1. If module is re-run then `db_create_role` will fail.
+2. Ruby environment setup is fragile with the bash approach and a puppet anti-pattern. (See `files/ruby_env.sh`.)
+3. Use community modules for postgres and rbenv tasks.
+4. Need to include performing final rake tasks.
+5. Support RHEL.
+6. I'm new to puppet. 'nough said.
 
+Please send me feedback at [aweiteka@redhat.com](mailto:aweiteka@redhat.com) with issues or suggestions. Pull requests encouraged!
