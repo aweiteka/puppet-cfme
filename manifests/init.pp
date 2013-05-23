@@ -17,7 +17,7 @@ class cfme {
     $home_dir = "/home/${::id}"
   }
 
-  $github_token = "d854bf8cd714f6f1259f8f18af5d98845e522abb"
+  $github_token = "<github_auth_token>"
   $cfme_src = "https://${github_token}@github.com/ManageIQ/cfme.git"
   $cfme_dir = "/var/www"
   $db_passwd = "smartvm"
