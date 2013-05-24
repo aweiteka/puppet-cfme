@@ -16,7 +16,12 @@ Puppet installer and environment setup for CFME from upstream source.
 
 2. Edit `manifests/init.pp` with your [GitHub auth token](https://github.com/settings/applications). This is required to download the cfme private repo.
 3. Run as `puppet apply -e "include cfme"`. Include `--noop` for dry run, `-l <cfme_install.log>` or `-v` for verbose output.
-4. from `/var/www/cfme/vmdb` run
+4. From `$HOME` run
+
+        ./ruby_env.sh
+        ./install_vddk.sh http://url/to/vmware-vix-disklib.tar (will reboot)
+
+5. From `/var/www/cfme/vmdb` run
 
         rake db:create:all
         bin/rake db:migrate

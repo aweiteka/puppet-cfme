@@ -14,7 +14,6 @@ class cfme::pkg_install() {
     command => "/usr/bin/postgresql-setup initdb",
     logoutput => true,
     require => Package['postgresql-server'],
-    before => Exec['db_start'],
   }
 
   exec { "db_start":
@@ -22,6 +21,7 @@ class cfme::pkg_install() {
     user => "postgres",
     unless => "/usr/bin/test -e ${cfme::db_dir}/postmaster.pid",
     logoutput => true,
+    require => Exec['db_init'],
   }
 
   service { "memcached":
